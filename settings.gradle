@@ -1,0 +1,5 @@
+rootProject.name = 'showme-backend'
+
+include 'core'
+include 'api-admin'
+include 'api-user'

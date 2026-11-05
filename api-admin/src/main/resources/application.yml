@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: showme-admin-api
+  profiles:
+    active: local
+  cloud:
+    aws:
+      s3:
+        enabled: false
+
+server:
+  port: 8081
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+logging:
+  level:
+    com.showme: DEBUG

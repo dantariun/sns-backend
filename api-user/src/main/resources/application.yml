@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: showme-user-api
+  profiles:
+    active: local
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+server:
+  port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+
+logging:
+  level:
+    com.showme: DEBUG
+
+portone:
+  imp-key: ${PORTONE_IMP_KEY:your-imp-key}
+  imp-secret: ${PORTONE_IMP_SECRET:your-imp-secret}
+
+# Firebase FCM — 서비스 계정 JSON 발급 후 경로 설정
+# Firebase Console > 프로젝트 설정 > 서비스 계정 > 새 비공개 키 생성
+firebase:
+  enabled: ${FIREBASE_ENABLED:false}
+  service-account-path: ${FIREBASE_SERVICE_ACCOUNT_PATH:}

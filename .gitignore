@@ -1,0 +1,32 @@
+# 빌드 산출물
+build/
+.gradle/
+*.class
+out/
+
+# 환경 설정 (민감 정보 포함 — 절대 커밋 금지)
+application-local.yml
+application-rds.yml
+application-prod.yml
+application-secret.yml
+.env
+firebase-service-account.json
+*-secret.json
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.iws
+*.ipr
+
+# QueryDSL 생성 파일
+src/main/generated/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 로컬 전용
+/report/
+docs/sql/
