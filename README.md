@@ -1,7 +1,7 @@
 # ShowMe Backend
 
-SNS 커머스 플랫폼 백엔드 프로젝트.  
-Spring Boot 멀티모듈 구조로 관리자 API, 사용자 API, 쇼핑몰 크롤러를 단일 레포지토리에서 운영한다.
+SNS 플랫폼 백엔드 포트폴리오 프로젝트.  
+Spring Boot 멀티모듈 구조로 관리자 API(api-admin)와 사용자 API(api-user)를 단일 레포지토리에서 운영한다.
 
 ---
 
@@ -29,7 +29,6 @@ showme-backend/
 | Docs | SpringDoc OpenAPI (Swagger UI) |
 | Push | Firebase Admin SDK (FCM) |
 | Storage | AWS S3 (Spring Cloud AWS) |
-| AI | Anthropic Claude Java SDK |
 | Realtime | Spring WebSocket + STOMP |
 
 ---
