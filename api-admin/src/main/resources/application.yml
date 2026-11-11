@@ -3,6 +3,13 @@ spring:
     name: showme-admin-api
   profiles:
     active: local
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
   cloud:
     aws:
       s3:
@@ -15,6 +22,14 @@ server:
       charset: UTF-8
       enabled: true
       force: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
 
 logging:
   level:

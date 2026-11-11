@@ -5,29 +5,30 @@
 
 ---
 
-## Phase 1 — 프로젝트 셋업 & core 모듈
+## Phase 1 — 프로젝트 셋업 & core 모듈 ✅
 
-**목표**: 멀티모듈 뼈대 + 공유 엔티티 + DB 연결 완성
+**목표**: 멀티모듈 뼈대 + 공유 엔티티 + DB 연결 완성  
+**완료일**: 2026-11-11
 
 ### 1-1. 프로젝트 초기화
-- [ ] Spring Boot 3.4.1 + Java 21 멀티모듈 Gradle 프로젝트 생성
-- [ ] 모듈 구성: core / api-admin / api-user
-- [ ] Gradle wrapper 설정
-- [ ] .gitignore 설정 (민감 정보 제외)
-- [ ] docker-compose.dev.yml (로컬 MySQL 컨테이너)
+- [x] Spring Boot 3.4.1 + Java 21 멀티모듈 Gradle 프로젝트 생성
+- [x] 모듈 구성: core / api-admin / api-user
+- [x] Gradle wrapper 설정
+- [x] .gitignore 설정 (민감 정보 제외)
+- [x] docker-compose.dev.yml (로컬 MySQL 컨테이너)
 
 ### 1-2. core 모듈 — 공유 엔티티
-- [ ] 공통 응답 형식 (`ApiResponse<T>`, `PageResponse<T>`)
-- [ ] 공통 예외 (`BusinessException`, `ErrorCode`)
-- [ ] 글로벌 예외 핸들러 (`GlobalExceptionHandler`)
-- [ ] JPA BaseEntity (createdAt, updatedAt)
-- [ ] Member 엔티티 (회원 기본 정보)
-- [ ] QueryDSL 설정
+- [x] 공통 응답 형식 (`ApiResponse<T>`, `PageResponse<T>`)
+- [x] 공통 예외 (`BusinessException`, `ErrorCode`)
+- [x] 글로벌 예외 핸들러 (`GlobalExceptionHandler`)
+- [x] JPA BaseEntity (createdAt, updatedAt)
+- [x] Member 엔티티 (회원 기본 정보)
+- [x] QueryDSL 설정
 
 ### 1-3. 공통 설정
-- [ ] application.yml / application-local.yml.example
-- [ ] DataSource, JPA 설정
-- [ ] README.md 초안
+- [x] application.yml / application-local.yml.example
+- [x] DataSource, JPA 설정
+- [x] README.md 초안
 
 ---
 

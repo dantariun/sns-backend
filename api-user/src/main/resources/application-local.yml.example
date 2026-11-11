@@ -18,5 +18,6 @@ cloud:
     region:
       static: ap-northeast-2
 
-anthropic:
-  api-key: your-anthropic-api-key-here
+firebase:
+  enabled: false
+  service-account-path:
