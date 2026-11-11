@@ -33,6 +33,24 @@ showme-backend/
 
 ---
 
+## 개발 진행 현황
+
+| Phase | 내용 | 상태 |
+|-------|------|------|
+| 1 | 프로젝트 셋업 & core 모듈 | ✅ 완료 |
+| 2 | api-admin 인증 & Spring Security | ⬜ 예정 |
+| 3 | api-admin 회원 관리 | ⬜ 예정 |
+| 4 | api-admin 피드·신고·공지·FAQ | ⬜ 예정 |
+| 5 | api-admin 대시보드 통계 | ⬜ 예정 |
+| 6 | api-user 인증 & 회원 & 팔로우 | ⬜ 예정 |
+| 7 | api-user 게시물 & 댓글 & 검색 (S3 업로드) | ⬜ 예정 |
+| 8 | api-user 알림(FCM) & 채팅(WebSocket) & 고객센터 | ⬜ 예정 |
+| 9 | 테스트 & CI/CD & 마무리 | ⬜ 예정 |
+
+상세 항목은 [개발 로드맵](docs/roadmap.md) 참고.
+
+---
+
 ## 개발 문서
 
 - [개발 요구사항 정의서](docs/requirements.md)
