@@ -32,18 +32,27 @@
 
 ---
 
-## Phase 2 — api-admin 인증 & Spring Security
+## Phase 2 — api-admin 인증 & Spring Security ✅
 
-**목표**: 관리자 JWT 인증 흐름 완성
+**목표**: 관리자 JWT 인증 흐름 완성  
+**완료일**: 2026-11-16
 
-- [ ] JWT Provider (토큰 생성·검증·파싱)
-- [ ] JwtAuthenticationFilter
-- [ ] Spring Security Config (관리자 Role)
-- [ ] AdminMember 엔티티 + Repository
-- [ ] `POST /admin/auth/login` — 로그인
-- [ ] `POST /admin/auth/refresh` — 토큰 재발급
-- [ ] `POST /admin/auth/logout`
-- [ ] Swagger UI 연동
+- [x] JWT Provider (토큰 생성·검증·파싱, access/refresh 타입 구분)
+- [x] JwtAuthenticationFilter
+- [x] Spring Security Config (관리자 Role — SUPER / ADMIN, CORS, 401·403 JSON 응답)
+- [x] AdminMember 엔티티 + Repository
+- [x] AdminRefreshToken 엔티티 (Refresh Token Rotation)
+- [x] Flyway `V1` 마이그레이션 (member · admin_member · admin_refresh_token)
+- [x] `POST /admin/auth/login` — 로그인
+- [x] `POST /admin/auth/refresh` — 토큰 재발급
+- [x] `POST /admin/auth/logout`
+- [x] Swagger UI 연동 (Bearer 인증 스킴)
+
+**검증**: 로컬 MySQL 컨테이너에서 기동 후 로그인 → 재발급 → 사용된 refresh 재사용 거부 → 로그아웃 흐름 확인
+
+**작업 중 발견·수정**
+- core의 엔티티·리포지토리가 앱 모듈에서 스캔되지 않던 문제 → `JpaConfig`에 스캔 범위 명시
+- 같은 초에 재발급하면 동일한 refresh 토큰이 생성돼 유니크 제약 위반 → 토큰에 `jti`(UUID) 추가
 
 ---
 

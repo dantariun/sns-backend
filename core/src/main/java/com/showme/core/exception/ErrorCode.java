@@ -72,6 +72,7 @@ public enum ErrorCode {
 
     // ── 관리자 ────────────────────────────────────────────────────
     ADMIN_NOT_FOUND(HttpStatus.NOT_FOUND, "관리자를 찾을 수 없습니다."),
+    ADMIN_INACTIVE(HttpStatus.FORBIDDEN, "비활성화된 관리자 계정입니다."),
     NOT_ADMIN_ROLE(HttpStatus.FORBIDDEN, "관리자 계정이 아닙니다."),
     SANCTION_NOT_FOUND(HttpStatus.NOT_FOUND, "제재 내역을 찾을 수 없습니다."),
     MEMBER_ALREADY_WITHDRAWN(HttpStatus.BAD_REQUEST, "이미 탈퇴한 회원입니다."),
