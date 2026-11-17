@@ -75,6 +75,8 @@ public enum ErrorCode {
     ADMIN_INACTIVE(HttpStatus.FORBIDDEN, "비활성화된 관리자 계정입니다."),
     NOT_ADMIN_ROLE(HttpStatus.FORBIDDEN, "관리자 계정이 아닙니다."),
     SANCTION_NOT_FOUND(HttpStatus.NOT_FOUND, "제재 내역을 찾을 수 없습니다."),
+    MEMBER_ALREADY_SUSPENDED(HttpStatus.BAD_REQUEST, "이미 정지된 회원입니다."),
+    MEMBER_NOT_SUSPENDED(HttpStatus.BAD_REQUEST, "정지 상태가 아닌 회원입니다."),
     MEMBER_ALREADY_WITHDRAWN(HttpStatus.BAD_REQUEST, "이미 탈퇴한 회원입니다."),
     MEMBER_NOT_WITHDRAWN(HttpStatus.BAD_REQUEST, "탈퇴 상태가 아닌 회원입니다."),
     REPORT_NOT_FOUND(HttpStatus.NOT_FOUND, "신고 내역을 찾을 수 없습니다."),

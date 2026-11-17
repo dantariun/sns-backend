@@ -56,21 +56,26 @@
 
 ---
 
-## Phase 3 — api-admin 회원 관리
+## Phase 3 — api-admin 회원 관리 ✅
 
-**목표**: sns-admin 회원 메뉴 API 완성
+**목표**: sns-admin 회원 메뉴 API 완성  
+**완료일**: 2026-11-17
 
-- [ ] MemberSanction 엔티티 (제재 이력)
-- [ ] `GET /admin/members` — 목록 (검색·필터·페이지네이션, QueryDSL)
-- [ ] `GET /admin/members/{id}` — 상세 (프로필)
-- [ ] `GET /admin/members/{id}/posts` — 회원 피드
-- [ ] `GET /admin/members/{id}/followers` — 팔로워
-- [ ] `GET /admin/members/{id}/followings` — 팔로잉
-- [ ] `GET /admin/members/{id}/sanction-history` — 제재 이력
-- [ ] `PATCH /admin/members/{id}/sanction` — 계정 정지
-- [ ] `PATCH /admin/members/{id}/sanction/release` — 정지 해제
-- [ ] `PATCH /admin/members/{id}/withdraw` — 강제 탈퇴
-- [ ] `PATCH /admin/members/{id}/restore` — 계정 복구
+- [x] MemberSanction 엔티티 (제재 이력 — 정지·해제·강제 탈퇴·복구)
+- [x] Follow 엔티티, 기본 Post 엔티티 (회원 상세의 팔로워·피드 수 집계용으로 선행 도입)
+- [x] Flyway `V2` 마이그레이션 (member.suspended_until · member_sanction · follow · post)
+- [x] `GET /admin/members` — 목록 (닉네임·이메일 검색, 상태·가입일 필터, 페이지네이션, QueryDSL)
+- [x] `GET /admin/members/{id}` — 상세 (프로필 + 팔로워·팔로잉·피드 수)
+- [x] `GET /admin/members/{id}/posts` — 회원 피드 (삭제·블라인드 포함)
+- [x] `GET /admin/members/{id}/followers` — 팔로워
+- [x] `GET /admin/members/{id}/followings` — 팔로잉
+- [x] `GET /admin/members/{id}/sanction-history` — 제재 이력
+- [x] `PATCH /admin/members/{id}/sanction` — 계정 정지 (기간 지정 / 무기한)
+- [x] `PATCH /admin/members/{id}/sanction/release` — 정지 해제
+- [x] `PATCH /admin/members/{id}/withdraw` — 강제 탈퇴
+- [x] `PATCH /admin/members/{id}/restore` — 계정 복구
+
+**검증**: 로컬 MySQL에 테스트 회원·팔로우·게시물을 넣고 검색·필터·페이지·집계·상태 전이(정지 → 해제, 탈퇴 → 복구)와 잘못된 전이 거부, 제재 이력 기록을 확인
 
 ---
 
@@ -79,7 +84,7 @@
 **목표**: sns-admin 콘텐츠·신고·고객센터 메뉴 API 완성
 
 ### 4-1. 피드(게시물) 관리
-- [ ] Post / PostLike / PostComment 엔티티
+- [ ] PostLike / PostComment 엔티티 (Post 기본 엔티티는 Phase 3에서 도입, 미디어 등 확장)
 - [ ] `GET /admin/posts` — 목록 (검색·필터)
 - [ ] `GET /admin/posts/{id}` — 상세 (미디어·댓글·좋아요 탭)
 - [ ] `DELETE /admin/posts/{id}` — 삭제
@@ -149,7 +154,7 @@
 - [ ] `POST /users/{memberId}/report` — 신고
 
 ### 6-3. 팔로우
-- [ ] Follow 엔티티
+- [x] Follow 엔티티 (Phase 3에서 선행 도입)
 - [ ] `POST /users/{id}/follow` — 팔로우
 - [ ] `DELETE /users/{id}/follow` — 언팔로우
 - [ ] `GET /users/{id}/followers` — 팔로워 목록

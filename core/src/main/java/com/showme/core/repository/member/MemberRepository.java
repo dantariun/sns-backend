@@ -1,4 +1,4 @@
-package com.showme.core.repository;
+package com.showme.core.repository.member;
 
 import com.showme.core.entity.member.Member;
 import org.springframework.data.jpa.repository.JpaRepository;

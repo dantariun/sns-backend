@@ -47,6 +47,9 @@ public class Member extends BaseTimeEntity {
     @Column(length = 10, nullable = false)
     private MemberStatus status = MemberStatus.ACTIVE;
 
+    /** NULL 이면 무기한 정지 */
+    private LocalDateTime suspendedUntil;
+
     private LocalDateTime lastLoginAt;
 
     private LocalDateTime withdrawalRequestedAt;
@@ -72,8 +75,17 @@ public class Member extends BaseTimeEntity {
 
     public void updateLastLoginAt() { this.lastLoginAt = LocalDateTime.now(); }
 
-    public void suspend() { this.status = MemberStatus.SUSPENDED; }
-    public void activate() { this.status = MemberStatus.ACTIVE; }
+    public boolean isWithdrawn() { return this.status == MemberStatus.WITHDRAWN; }
+
+    public void suspend(LocalDateTime until) {
+        this.status = MemberStatus.SUSPENDED;
+        this.suspendedUntil = until;
+    }
+
+    public void releaseSuspension() {
+        this.status = MemberStatus.ACTIVE;
+        this.suspendedUntil = null;
+    }
 
     public void requestWithdrawal() { this.withdrawalRequestedAt = LocalDateTime.now(); }
     public void cancelWithdrawal() { this.withdrawalRequestedAt = null; }
@@ -85,6 +97,7 @@ public class Member extends BaseTimeEntity {
 
     public void restore() {
         this.status = MemberStatus.ACTIVE;
+        this.suspendedUntil = null;
         this.deletedAt = null;
         this.withdrawalRequestedAt = null;
     }
