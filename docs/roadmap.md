@@ -79,41 +79,51 @@
 
 ---
 
-## Phase 4 — api-admin 피드·신고·공지·FAQ
+## Phase 4 — api-admin 피드·신고·공지·FAQ ✅
 
-**목표**: sns-admin 콘텐츠·신고·고객센터 메뉴 API 완성
+**목표**: sns-admin 콘텐츠·신고·고객센터 메뉴 API 완성  
+**완료일**: 2026-11-18
 
 ### 4-1. 피드(게시물) 관리
-- [ ] PostLike / PostComment 엔티티 (Post 기본 엔티티는 Phase 3에서 도입, 미디어 등 확장)
-- [ ] `GET /admin/posts` — 목록 (검색·필터)
-- [ ] `GET /admin/posts/{id}` — 상세 (미디어·댓글·좋아요 탭)
-- [ ] `DELETE /admin/posts/{id}` — 삭제
-- [ ] `PATCH /admin/posts/{id}/blind` — 블라인드 처리
-- [ ] `GET /admin/posts/{id}/comments` — 댓글 목록
-- [ ] `DELETE /admin/comments/{id}` — 댓글 삭제
+- [x] Post 확장 (공개 범위 · 미디어 · 태그) / PostComment / PostLike 엔티티
+- [x] `GET /admin/posts` — 목록 (본문·작성자 검색, 상태 PUBLIC·PRIVATE·BLINDED, 작성일 필터, 신고 수)
+- [x] `GET /admin/posts/{id}` — 상세 (미디어·태그·신고 수)
+- [x] `GET /admin/posts/{id}/comments` — 댓글 목록 (답글·삭제·블라인드 포함)
+- [x] `GET /admin/posts/{id}/likes` — 좋아요 목록
+- [x] `PATCH /admin/posts/{id}/blind` · `/unblind` — 블라인드 처리·해제
+- [x] `DELETE /admin/posts/{id}` — 삭제 (소프트 삭제)
+- [x] `DELETE /admin/comments/{id}` — 댓글 삭제 (게시물 댓글 수 차감)
 
 ### 4-2. 신고 관리
-- [ ] Report 엔티티
-- [ ] `GET /admin/reports` — 목록 (처리 상태·유형 필터)
-- [ ] `GET /admin/reports/{id}` — 상세
-- [ ] `GET /admin/reports/{id}/history` — 처리 이력
-- [ ] `PATCH /admin/reports/{id}` — 처리 (경고·블라인드·정지)
+- [x] Report 엔티티 (대상: FEED · COMMENT · MEMBER)
+- [x] `GET /admin/reports` — 목록 (처리 상태·대상 유형 필터)
+- [x] `GET /admin/reports/{id}` — 상세 (대상 요약 + 같은 대상 누적 신고 수)
+- [x] `GET /admin/reports/{id}/history` — 처리 이력 (같은 대상의 신고와 처리 결과)
+- [x] `PATCH /admin/reports/{id}` — 처리 (경고 · 블라인드 · 정지 · 기각, 정지 시 제재 이력 기록)
 
 ### 4-3. 공지사항
-- [ ] Notice 엔티티
-- [ ] `GET /admin/notices` — 목록
-- [ ] `GET /admin/notices/{id}` — 상세
-- [ ] `POST /admin/notices` — 작성
-- [ ] `PATCH /admin/notices/{id}` — 수정
-- [ ] `DELETE /admin/notices/{id}` — 삭제
+- [x] Notice 엔티티
+- [x] `GET /admin/notices` — 목록 (제목 검색, 게시 여부 필터)
+- [x] `GET /admin/notices/{id}` — 상세
+- [x] `POST /admin/notices` — 작성
+- [x] `PUT /admin/notices/{id}` — 수정
+- [x] `DELETE /admin/notices/{id}` — 삭제 (소프트 삭제)
 
 ### 4-4. FAQ
-- [ ] Faq 엔티티
-- [ ] `GET /admin/faqs` — 목록 (카테고리 필터)
-- [ ] `GET /admin/faqs/{id}` — 상세
-- [ ] `POST /admin/faqs` — 작성
-- [ ] `PATCH /admin/faqs/{id}` — 수정
-- [ ] `DELETE /admin/faqs/{id}` — 삭제
+- [x] Faq 엔티티
+- [x] `GET /admin/faqs` — 목록 (질문·답변 검색, 카테고리 필터)
+- [x] `GET /admin/faqs/{id}` — 상세
+- [x] `POST /admin/faqs` — 작성
+- [x] `PUT /admin/faqs/{id}` — 수정
+- [x] `DELETE /admin/faqs/{id}` — 삭제 (소프트 삭제)
+
+- [x] Flyway `V3` 마이그레이션 (post 확장 · post_media · post_tag · post_comment · post_like · report · notice · faq)
+
+**검증**: 로컬 MySQL에 게시물·댓글·좋아요·신고 데이터를 넣고 검색·필터·블라인드·삭제, 신고 처리 4종의 실제 반영(게시물·댓글 블라인드, 작성자 정지와 제재 이력), 잘못된 처리 거부, 공지·FAQ CRUD를 확인
+
+**작업 중 발견·수정**
+- 잘못된 enum 값·깨진 JSON이 500으로 응답되던 문제 → 400으로 처리
+- 잘못된 검색 조건이 내부 클래스명이 담긴 메시지로 응답되던 문제 → 필드명만 알려주도록 정리
 
 ---
 

@@ -51,6 +51,10 @@ public enum ErrorCode {
     COMMENT_ACCESS_DENIED(HttpStatus.FORBIDDEN, "댓글에 접근 권한이 없습니다."),
     COMMENT_REPLY_NOT_ALLOWED(HttpStatus.BAD_REQUEST, "대댓글에는 답글을 달 수 없습니다."),
     COMMENT_ALREADY_LIKED(HttpStatus.CONFLICT, "이미 좋아요한 댓글입니다."),
+    POST_ALREADY_DELETED(HttpStatus.BAD_REQUEST, "이미 삭제된 게시물입니다."),
+    POST_ALREADY_BLINDED(HttpStatus.BAD_REQUEST, "이미 블라인드된 게시물입니다."),
+    POST_NOT_BLINDED(HttpStatus.BAD_REQUEST, "블라인드 상태가 아닌 게시물입니다."),
+    COMMENT_ALREADY_DELETED(HttpStatus.BAD_REQUEST, "이미 삭제된 댓글입니다."),
     COMMENT_NOT_LIKED(HttpStatus.BAD_REQUEST, "좋아요하지 않은 댓글입니다."),
 
     // ── 채팅 ──────────────────────────────────────────────────────
@@ -80,6 +84,8 @@ public enum ErrorCode {
     MEMBER_ALREADY_WITHDRAWN(HttpStatus.BAD_REQUEST, "이미 탈퇴한 회원입니다."),
     MEMBER_NOT_WITHDRAWN(HttpStatus.BAD_REQUEST, "탈퇴 상태가 아닌 회원입니다."),
     REPORT_NOT_FOUND(HttpStatus.NOT_FOUND, "신고 내역을 찾을 수 없습니다."),
+    REPORT_TARGET_NOT_FOUND(HttpStatus.NOT_FOUND, "신고 대상을 찾을 수 없습니다."),
+    INVALID_REPORT_ACTION(HttpStatus.BAD_REQUEST, "신고 대상에 적용할 수 없는 처리입니다."),
     REPORT_ALREADY_PROCESSED(HttpStatus.BAD_REQUEST, "이미 처리된 신고입니다."),
     NOTICE_NOT_FOUND(HttpStatus.NOT_FOUND, "공지사항을 찾을 수 없습니다."),
     FAQ_NOT_FOUND(HttpStatus.NOT_FOUND, "FAQ를 찾을 수 없습니다."),
