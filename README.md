@@ -88,7 +88,7 @@ showme-backend/
 | 2 | api-admin 인증 & Spring Security | ✅ 완료 |
 | 3 | api-admin 회원 관리 | ✅ 완료 |
 | 4 | api-admin 피드·신고·공지·FAQ | ✅ 완료 |
-| 5 | api-admin 대시보드 통계 | ⬜ 예정 |
+| 5 | api-admin 대시보드 통계 | ✅ 완료 |
 | 6 | api-user 인증 & 회원 & 팔로우 | ⬜ 예정 |
 | 7 | api-user 게시물 & 댓글 & 검색 (S3 업로드) | ⬜ 예정 |
 | 8 | api-user 알림(FCM) & 채팅(WebSocket) & 고객센터 | ⬜ 예정 |

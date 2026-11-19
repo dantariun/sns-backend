@@ -127,14 +127,21 @@
 
 ---
 
-## Phase 5 — api-admin 대시보드 통계
+## Phase 5 — api-admin 대시보드 통계 ✅
 
-**목표**: sns-admin 대시보드 메뉴 API 완성
+**목표**: sns-admin 대시보드 메뉴 API 완성  
+**완료일**: 2026-11-19
 
-- [ ] `GET /admin/stats/summary` — 통계 요약 카드 (총 회원, 오늘 가입자, 총 게시물, 미처리 신고)
-- [ ] `GET /admin/stats/members/trend` — 가입자 추이 (기간별)
-- [ ] `GET /admin/stats/posts/trend` — 게시물 추이 (기간별)
-- [ ] `GET /admin/stats/reports/pending` — 미처리 신고 현황
+- [x] `GET /admin/stats/summary` — 통계 요약 카드 (총 회원(탈퇴 제외), 오늘 가입자, 총 게시물(삭제 제외), 미처리 신고)
+- [x] `GET /admin/stats/members/trend` — 가입자 추이 (일별, 기본 최근 14일·최대 90일, 빈 날 0 채움)
+- [x] `GET /admin/stats/posts/trend` — 게시물 추이 (일별, 같은 규칙)
+- [x] `GET /admin/stats/reports/pending` — 미처리 신고 현황 (최근 N건)
+- [x] `GET /admin/stats/members/recent` — 최근 가입 회원 (대시보드 목록용으로 추가)
+
+**검증**: 로컬 MySQL에서 같은 조건을 SQL로 직접 집계한 값과 API 응답(요약 4종, 일별 추이)이 일치하는지 비교, 기간·개수 파라미터 검증 확인
+
+**작업 중 발견·수정**
+- 쿼리 파라미터 제약(`size` 범위 등) 위반이 500으로 응답되던 문제 → 400으로 처리
 
 ---
 
